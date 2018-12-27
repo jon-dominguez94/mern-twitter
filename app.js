@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const express = require("express");
 const bodyParser = require("body-parser");
 
+const express = require("express");
 const app = express();
+
+const mongoose = require("mongoose");
 const db = require('./config/keys').mongoURI;
 
 const users = require("./routes/api/users");
@@ -13,11 +14,14 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send("Hey World"));
+app.get("/", (req, res) => {
+  console.log(res);
+  res.send("Hey World");
+});
+
 app.use("/api/users", users);
 app.use("/api/tweets", tweets);
 
