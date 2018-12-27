@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Tweet = require('../../models/Tweet');
@@ -37,7 +36,7 @@ router.post('/',
 
     const newTweet = new Tweet({
       text: req.body.text,
-      user = req.user.id
+      user: req.user.id
     });
 
     newTweet.save().then(tweet => res.json(tweet));
