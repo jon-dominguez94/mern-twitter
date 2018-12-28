@@ -11,7 +11,6 @@ bundle.map.js
 package-lock.json
 
 config/master.key
-/config/keys.js
 keys_dev.js
 
 storage/
